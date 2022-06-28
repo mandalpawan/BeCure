@@ -1,0 +1,197 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'index.css' %}">
+    <link rel="stylesheet" href="{% static 'body.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inspiration&family=Poppins:wght@200&family=Roboto+Mono:wght@200&display=swap" rel="stylesheet">
+    <title>BeCure</title>
+  </head>
+  <body>
+    <!-- Bar Start -->
+    <nav class="navbar navbar-expand-lg navbar-light "  id="navbarid">
+      <div class="container-fluid">
+        <a class="navbar-brand logo" href="#">BeCure</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'booking' %}">Contact</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'service' %}">Services</a>
+            </li>
+            {% if user.is_authenticated %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'appointment' %}">Appointment</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'subs' %}" style="color: rgb(148, 148, 24); font-weight: 500;">Browser Plan</a>
+            </li>
+            {% endif %}
+                        
+          </ul>
+          {% if user.is_authenticated %}
+            <a class="btn btn-success" href="/logout/" role="button">Logout</a>
+          {% else %}
+            <a class="btn btn-success" href="/login/" role="button">Login</a>
+          {% endif %}
+        </div>
+      </div>
+    </nav>
+  <!-- NavBar End -->
+    <div id="container">
+        <h1>Book your Appointment</h1>
+  
+      <form action="{% url 'booking' %}" method="post">
+        {% csrf_token %}
+        <fieldset>
+          <legend><span class="number">1</span>Your Personal Details : </legend>
+          <label for="name">Name<span style="color: red;">*</span> :</label>
+          <input type="text" id="name" name="user_name" placeholder="Enter Your Name" required pattern="[a-zA-Z0-9]+">
+  
+          <label for="mail">Email<span style="color: red;">*</span>:</label>
+          <input type="email" id="mail" name="user_email" placeholder="Enter Email id" required>
+  
+          <label for="tel">Contact Num:</label>
+          <input type="tel" id="tel" placeholder="Enter Your Number" name="user_num" maxlength="10">
+  
+        </fieldset>
+  
+        <fieldset>
+          <legend><span class="number">2</span>Appointment Details</legend>
+          <label for="appointment_for">Appointment for<span style="color: red;">*</span>:</label>
+          <select id="appointment_for" name="appointment" required>
+            <option value="Depression Healing">Select Your Query</option>
+            <option value="Anxiety">Anxiety</option>
+            <option value="Student Counselling">Student Counselling</option>
+            <option value="Guidance">Guidance</option>
+          </select>
+          <br><br>
+          <label for="appointment_description">Appointment Description:</label>
+          <textarea id="appointment_description"  rows="5" name="appointment_description" placeholder="I wish to get an BeCure Appointment"></textarea>
+          <label for="date">Date<span style="color: red;">*</span>:</label>
+          <input type="date" name="date" value="" required></input>
+          <br>
+          <label for="time">Time<span style="color: red;">*</span>:</label>
+          <input type="time" name="time" value="" required></input>
+          <br>
+          <label for="duration">How Long??(Minutes)</label>
+          <input type="radio" name="duration" value="30" checked> 30
+          <input type="radio" name="duration" value="60"> 60
+          <input type="radio" name="duration" value="90"> 90
+          <br>
+          <br>
+          <label for="gender">Choose Gender you're comfortable with</label>
+          <select name="gender">
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="other">other</option>
+          </select>
+       </fieldset>
+       <br><br>
+        <button type="submit">Request For Appointment</button>
+      </form>
+    </div>
+
+    <!-- Footer Start -->
+    <!-- Footer -->
+<footer class="text-center text-lg-start bg-light text-muted">
+    <!-- Section: Social media -->
+    <section
+      class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom"
+    >
+      <!-- Left -->
+      <div class="me-5 d-none d-lg-block">
+        <span>Get connected with us on social networks:</span>
+      </div>
+      <!-- Left -->
+  
+      <!-- Right -->
+      <div>
+        <a href="" class="me-4 text-reset">
+          <i class="fa fa-facebook"></i>
+        </a>
+        <a href="" class="me-4 text-reset">
+          <i class="fa fa-twitter"></i>
+        </a>
+        <a href="" class="me-4 text-reset">
+          <i class="fa fa-google"></i>
+        </a>
+        <a href="" class="me-4 text-reset">
+          <i class="fa fa-instagram"></i>
+        </a>
+        
+      </div>
+      <!-- Right -->
+    </section>
+    <!-- Section: Social media -->
+  
+    <!-- Section: Links  -->
+    <section class="">
+      <div class="container text-center text-md-start mt-5">
+        <!-- Grid row -->
+        <div class="row mt-3">
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+            <!-- Content -->
+            <h6 class="text-uppercase fw-bold mb-4">
+              <i class="fas fa-gem me-3"></i>BeCure
+            </h6>
+            <p>
+              Making professional therapy accessible, affordable, and convenient — so anyone who struggles with life’s challenges can get help, anytime and anywhere.
+            </p>
+          </div>
+          <!-- Grid column -->
+
+  
+          <!-- Grid column -->
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4">
+              Contact
+            </h6>
+            <p><i class="fa fa-home me-3"></i> Jaipur, RJ 302015, India</p>
+            <p>
+              <i class="fa fa-envelope me-3"></i>
+              becure.info@gmail.com
+            </p>
+            <p><i class="fa fa-phone me-3"></i> + 01 234 567 88</p>
+            <p><i class="fa fa-print me-3"></i> + 01 234 567 89</p>
+          </div>
+          <!-- Grid column -->
+        </div>
+        <!-- Grid row -->
+      </div>
+    </section>
+    <!-- Section: Links  -->
+  
+    <!-- Copyright -->
+    <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+      © 2022 Copyright:
+      <a class="text-reset fw-bold" href="#">Pawan Mandal</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+  <!-- Footer -->
+    <!-- Footer End -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  </body>
+</html>
+

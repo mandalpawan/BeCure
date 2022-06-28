@@ -1,0 +1,330 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'index.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inspiration&family=Poppins:wght@200&family=Roboto+Mono:wght@200&display=swap" rel="stylesheet">
+    <title>BeCure</title>
+  </head>
+  <body>
+    <!-- Bar Start -->
+    <nav class="navbar navbar-expand-lg navbar-light "  id="navbarid">
+        <div class="container-fluid">
+          <a class="navbar-brand logo" href="#">BeCure</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'booking' %}">Contact</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'service' %}">Services</a>
+              </li>
+              {% if user.is_authenticated %}
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'appointment' %}">Appointment</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'subs' %}" style="color: rgb(148, 148, 24); font-weight: 500;">Browser Plan</a>
+              </li>
+              {% endif %}
+                          
+            </ul>
+            {% if user.is_authenticated %}
+              <a class="btn btn-success" href="/logout/" role="button">Logout</a>
+            {% else %}
+              <a class="btn btn-success" href="/login/" role="button">Login</a>
+            {% endif %}
+          </div>
+        </div>
+      </nav>
+    <!-- NavBar End -->
+
+    <!-- Caresole Started -->
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active header-pic ">
+          <img src="{% static 'images/img3.jpg' %}" class="d-block w-100" alt="...">
+          <div class="carousel-caption d-none d-md-block tagline">
+            <h1 >BeCure</h1>
+            <p>- A Step to Better Health.</p>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    <!-- Caresole End -->
+
+
+
+    <!-- Features -->
+    <div class="feature">
+      
+      <hr style="color: #0ae026;margin: 30px;">
+      <div class="row">
+        <div class="col-lg-6">
+          <img id="image" src="{% static 'image/becure.jpeg' %}" alt="">
+        </div>
+        <div class="col-lg-6">
+          <h1>What is BeCure ?</h1>
+          <br><br><br><br>
+          <p style="text-align: justify; text-justify: inter-word;">BeCure is an online portal that provides direct-to-consumer access to mental health services. The online counseling and therapy services are provided through web-based interaction as well as phone and text communication.We envision to help our clients develop a better understanding of self along with becoming capable of creating what they want in life. We help you to accept, know and grow in life. We connect you with trained and certified professionals who help you acquire skills and techniques enabling you to lead a happier, more fulfilling and meaningful life.</p>
+       </div>
+      
+        
+        <hr style="color: #0ae026;margin-top: 30px; margin-bottom: 30px;">
+        <br><br><br>
+    
+        <div class="col-lg-6">          
+          <h1>Our Features</h1>
+          <br><br><br><br>
+          <div style="text-align: justify; text-justify: inter-word;">
+            <ol style="font-size: xx-large;">
+              <li>24/7 Service</li>
+              <li>Professional Therapists</li>
+              <li>Student Counselling</li>
+              <li>Life Guidance</li>
+              <li>Depression Healing</li>
+              <li>Anxiety Cure</li>
+              <li>Assistance</li>
+              <li>Therapists According to your Choice</li>
+            </ol>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <img id="image" src="{% static 'image/Features.jpeg' %}" alt="">
+        </div>
+      </div>
+    </div>
+    <!-- Features End -->
+
+    <hr>
+    <!-- Service Started -->
+    <div class="cards">
+        <h1>What We Can Offer</h1>
+        <p >We envision to help our clients develop a better understanding of self along with becoming capable of creating what they want in life. We help you to accept, know and grow in life. We connect you with trained and certified professionals who help you acquire skills and techniques enabling you to lead a happier, more fulfilling and meaningful life. </p>
+        <div class="row">
+          <div class="col-lg-3 col-sm-12 col-md-6">
+            <div class="card" style="width: 18rem;">
+                <img src="{% static 'PNG/Relax.png' %}" class="card-img-top " alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Relaxation</h5>
+                  <p class="card-text">Focus your attention on calmness and increase your personal awareness.</p>
+                </div>
+              </div>
+        </div>
+            <div class="col-lg-3 col-sm-12 col-md-6">
+                <div class="card" style="width: 18rem;">
+                    <img src="{% static 'PNG/Autism.png' %}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Mind Games</h5>
+                      <p class="card-text">It is crucial to understand how to prevent others from playing such games with you.</p>
+                    </div>
+                  </div>
+            </div>
+            <div class="col-lg-3 col-sm-12 col-md-6">
+                <div class="card" style="width: 18rem;">
+                    <img src="{% static 'PNG/Depression.png' %}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Depression</h5>
+                      <p class="card-text">If your depression is keeping you from living your life don’t hesitate to seek help.</p>
+                    </div>
+                  </div>
+            </div>
+            <div class="col-lg-3 col-sm-12 col-md-6">
+                <div class="card" style="width: 18rem;">
+                    <img src="{% static 'PNG/Meditation activity.png' %}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Meditation</h5>
+                      <p class="card-text">Learn how to deal with difficult emotions and feelings by using healthy strategies.</p>
+                    </div>
+                  </div>
+            </div>
+            <div class="col-lg-3 col-sm-12 col-md-6">
+                <div class="card" style="width: 18rem;">
+                    <img src="{% static 'PNG/Intrusive thought.png' %}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Conflicting</h5>
+                      <p class="card-text">Invaluable insight into the knowledge of reducing conflict in relationship.</p>
+                    </div>
+                  </div>
+            </div>
+            <div class="col-lg-3 col-sm-12 col-md-6">
+                <div class="card" style="width: 18rem;">
+                    <img src="{% static 'PNG/Emotion.png' %}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Feelings</h5>
+                      <p class="card-text">Achieve a better level of your well-being and the ability to manage feelings.</p>
+                    </div>
+                  </div>
+            </div>
+            <div class="col-lg-3 col-sm-12 col-md-6">
+                <div class="card" style="width: 18rem;">
+                    <img src="{% static 'png/Mental Health.png' %}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Mental Health</h5>
+                      <p class="card-text">Improve your focus, relieve stress and anxiety, and develop creativity.</p>
+                    </div>
+                  </div>
+            </div>
+            <div class="col-lg-3 col-sm-12 col-md-6">
+                <div class="card" style="width: 18rem;">
+                    <img src="{% static 'PNG/Selfcare.png' %}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Relationship</h5>
+                      <p class="card-text">A therapy that helps establish a more profound ground for healthy relationship.</p>
+                    </div>
+                  </div>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+    <!-- Service End -->
+
+    <!-- Testmonial Start -->
+    
+    <section class="testimonial text-center">
+        <div class="container">
+
+            <div class="heading white-heading">
+                Our Client Review
+            </div>
+            <div id="testimonial4" class="carousel slide testimonial4_indicators testimonial4_control_button thumb_scroll_x swipe_x" data-ride="carousel" data-pause="hover" data-interval="5000" data-duration="2000">
+             
+                <div class="carousel-inner" role="listbox">
+                    <div class="carousel-item active">
+                        <div class="testimonial4_slide">
+                            <img src="https://i.ibb.co/8x9xK4H/team.jpg" class="img-circle img-responsive" />
+                            <p>"I have now been working with BeCure for about 4 weeks, and can confidently say that I am a lot less anxious about my career path now than when I first signed up...I am so much better off now than I was before." </p>
+                            <h4>~ Atishay Jain</h4>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="testimonial4_slide">
+                            <img src="https://i.ibb.co/8x9xK4H/team.jpg" class="img-circle img-responsive" /><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
+                            <h4>Client 2</h4>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="testimonial4_slide">
+                            <img src="https://i.ibb.co/8x9xK4H/team.jpg" class="img-circle img-responsive" />
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
+                            <h4>Client 3</h4>
+                        </div>
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#testimonial4" data-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </a>
+                <a class="carousel-control-next" href="#testimonial4" data-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testmonoal End -->
+
+    <!-- Footer Start -->
+    <!-- Footer -->
+<footer class="text-center text-lg-start bg-light text-muted">
+    <!-- Section: Social media -->
+    <section
+      class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom"
+    >
+      <!-- Left -->
+      <div class="me-5 d-none d-lg-block">
+        <span>Get connected with us on social networks:</span>
+      </div>
+      <!-- Left -->
+  
+      <!-- Right -->
+      <div>
+        <a href="" class="me-4 text-reset">
+          <i class="fa fa-facebook"></i>
+        </a>
+        <a href="" class="me-4 text-reset">
+          <i class="fa fa-twitter"></i>
+        </a>
+        <a href="" class="me-4 text-reset">
+          <i class="fa fa-google"></i>
+        </a>
+        <a href="" class="me-4 text-reset">
+          <i class="fa fa-instagram"></i>
+        </a>
+        
+      </div>
+      <!-- Right -->
+    </section>
+    <!-- Section: Social media -->
+  
+    <!-- Section: Links  -->
+    <section class="">
+      <div class="container text-center text-md-start mt-5">
+        <!-- Grid row -->
+        <div class="row mt-3">
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+            <!-- Content -->
+            <h6 class="text-uppercase fw-bold mb-4">
+              <i class="fas fa-gem me-3"></i>BeCure
+            </h6>
+            <p>
+              Making professional therapy accessible, affordable, and convenient — so anyone who struggles with life’s challenges can get help, anytime and anywhere.
+            </p>
+          </div>
+          <!-- Grid column -->
+
+  
+          <!-- Grid column -->
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4">
+              Contact
+            </h6>
+            <p><i class="fa fa-home me-3"></i> Jaipur, RJ 302015, India</p>
+            <p>
+              <i class="fa fa-envelope me-3"></i>
+              becure.info@gmail.com
+            </p>
+            <p><i class="fa fa-phone me-3"></i> + 01 234 567 88</p>
+            <p><i class="fa fa-print me-3"></i> + 01 234 567 89</p>
+          </div>
+          <!-- Grid column -->
+        </div>
+        <!-- Grid row -->
+      </div>
+    </section>
+    <!-- Section: Links  -->
+  
+    <!-- Copyright -->
+    <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+      © 2022 Copyright:
+      <a class="text-reset fw-bold" href="#">Pawan Mandal</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+  <!-- Footer -->
+    <!-- Footer End -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  </body>
+</html>
